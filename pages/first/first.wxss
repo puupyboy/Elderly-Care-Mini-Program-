@@ -1,0 +1,65 @@
+page { background-color: #fdfaf7; }
+.container { padding: 30rpx; padding-bottom: 100rpx; }
+
+/* 加载中 / 错误态 */
+.loading-wrap, .error-wrap { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 120rpx 0; }
+.loading-spinner { width: 60rpx; height: 60rpx; border: 6rpx solid #f3e8d2; border-top-color: #d97706; border-radius: 50%; animation: spin 0.8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-wrap text, .error-text { font-size: 28rpx; color: #888; margin-top: 24rpx; }
+.error-icon { font-size: 80rpx; margin-bottom: 20rpx; }
+.retry-btn { margin-top: 30rpx; background: #d97706; color: #fff; font-size: 28rpx; padding: 20rpx 50rpx; border-radius: 30rpx; }
+
+/* Header */
+.header { display: flex; justify-content: space-between; margin-bottom: 40rpx; }
+.title { font-size: 48rpx; font-weight: bold; color: #1a1a1a; display: block; }
+.subtitle { font-size: 32rpx; color: #888; margin-top: 10rpx; }
+.temp { font-size: 48rpx; font-weight: bold; color: #d97706; display: block; text-align: right; }
+.weather-desc { font-size: 24rpx; color: #888; }
+
+/* Card 通用 */
+.card { background: white; border-radius: 40rpx; padding: 40rpx; margin-bottom: 30rpx; border: 1rpx solid #f3e8d2; }
+.card-header { display: flex; align-items: center; margin-bottom: 30rpx; }
+.card-header-flex { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30rpx; }
+.flex-row { display: flex; align-items: center; }
+.card-title { font-size: 36rpx; font-weight: bold; margin-left: 15rpx; }
+
+/* 网格布局 */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20rpx; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24rpx; }
+.more { font-size: 26rpx; color:rgb(216, 119, 7); }
+.icon-red, .icon-warm, .icon-green, .icon-purple { font-size: 36rpx; margin-right: 8rpx; }
+.check-icon { position: absolute; right: 0; top: 0; font-size: 28rpx; }
+
+/* 视频区 */
+.video-box { position: relative; border-radius: 24rpx; overflow: hidden; background: #f5f5f5; }
+.video-cover { width: 100%; height: 280rpx; display: block; }
+.play-btn { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: 80rpx; height: 80rpx; background: rgba(0,0,0,0.5); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 36rpx; }
+.video-info { padding: 20rpx; font-size: 28rpx; color: #666; }
+
+/* 生活服务 */
+.service-btn { display: flex; flex-direction: column; align-items: center; padding: 24rpx; background: #f9fafb; border-radius: 24rpx; font-size: 26rpx; color: #333; }
+.service-icon { width: 80rpx; height: 80rpx; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 36rpx; margin-bottom: 12rpx; }
+.status-item { padding: 30rpx; border-radius: 30rpx; display: flex; flex-direction: column; align-items: center; }
+.bg-red { background-color: #fef2f2; }
+.bg-blue { background-color: #eff6ff; }
+.icon-circle { background: white; width: 80rpx; height: 80rpx; border-radius: 50%; display: flex; items-center: center; justify-content: center; margin-bottom: 15rpx; }
+
+/* 志愿者滚动 */
+.volunteer-scroll { white-space: nowrap; width: 100%; }
+.volunteer-item { display: inline-flex; flex-direction: column; align-items: center; width: 220rpx; margin-right: 20rpx; }
+.avatar-wrap { position: relative; }
+.avatar { width: 140rpx; height: 140rpx; border-radius: 50%; border: 6rpx solid #fdfaf7; }
+.v-name { font-size: 32rpx; font-weight: bold; margin-top: 15rpx; }
+.v-skill { font-size: 24rpx; color: #666; }
+.v-tag { width: 160rpx; text-align: center; border-radius: 30rpx; font-size: 24rpx; padding: 8rpx 0; margin-top: 15rpx; }
+.tag-warm { background: #fef3c7; color: #92400e; }
+.tag-green { background: #dcfce7; color: #166534; }
+
+/* 弹窗详情 */
+.modal-mask { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; z-index: 999; }
+.modal-content { background: white; width: 80%; border-radius: 50rpx; padding: 50rpx; display: flex; flex-direction: column; align-items: center; }
+.modal-avatar { width: 200rpx; height: 200rpx; border-radius: 50%; margin-bottom: 30rpx; border: 8rpx solid #fdfaf7; }
+.modal-name { font-size: 44rpx; font-weight: bold; }
+.modal-intro { background: #f9fafb; padding: 30rpx; border-radius: 30rpx; margin: 40rpx 0; width: 100%; }
+.modal-apply { background: #d97706; color: white; width: 100%; border-radius: 30rpx; font-weight: bold; }
+.btn-disabled { background: #eee !important; color: #999 !important; }

@@ -1,0 +1,111 @@
+<view class="container">
+  <!-- 加载中 -->
+  <view class="loading-wrap" wx:if="{{loading && !loadError}}">
+    <view class="loading-spinner"></view>
+    <text>正在加载...</text>
+  </view>
+
+  <!-- 加载失败 -->
+  <view class="error-wrap" wx:elif="{{loadError}}">
+    <text class="error-icon">😕</text>
+    <text class="error-text">加载失败，请检查网络</text>
+    <button class="retry-btn" bindtap="retryLoad">重新加载</button>
+  </view>
+
+  <block wx:else>
+  <view class="header">
+    <view>
+      <text class="title">早安，李爷爷</text>
+      <text class="subtitle">今天也是美好的一天</text>
+    </view>
+    <view class="weather">
+      <text class="temp">24°C</text>
+      <text class="weather-desc">多云 微风</text>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="card-header">
+      <text class="icon-red">❤️</text>
+      <text class="card-title">健康管理</text>
+    </view>
+    <view class="grid-2">
+      <view class="status-item bg-red">
+        <view class="icon-circle"><text>💊</text></view>
+        <text class="status-label">吃药提醒</text>
+        <text class="status-val">上午 08:00 (已服)</text>
+      </view>
+      <view class="status-item bg-blue">
+        <view class="icon-circle"><text>📊</text></view>
+        <text class="status-label">血压心率</text>
+        <text class="status-val">128/82 mmHg</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="card-header-flex">
+      <view class="flex-row">
+        <text class="icon-warm">👥</text>
+        <text class="card-title">志愿者陪伴</text>
+      </view>
+      <text class="more">查看全部 ></text>
+    </view>
+    <scroll-view scroll-x class="volunteer-scroll">
+      <view class="volunteer-item" wx:for="{{volunteers}}" wx:key="_id" bindtap="openVolunteer" data-item="{{item}}">
+        <view class="avatar-wrap">
+          <image src="{{item.avatar}}" class="avatar"></image>
+          <text class="check-icon" wx:if="{{item.applied}}">✅</text>
+        </view>
+        <text class="v-name">{{item.name}}</text>
+        <text class="v-skill">{{item.skill}}</text>
+        <view class="v-tag {{item.applied ? 'tag-green' : 'tag-warm'}}">
+          {{item.applied ? '已申请' : '申请'}}
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class="card">
+    <view class="card-header">
+      <text class="icon-green">🥗</text>
+      <text class="card-title">养生与饮食</text>
+    </view>
+    <view class="video-box">
+      <image src="https://picsum.photos/800/450?random=10" class="video-cover"></image>
+      <view class="play-btn">▶️</view>
+      <view class="video-info">
+        <text>今日推荐：秋季润肺止咳汤的做法</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="card-header">
+      <text class="icon-purple">🚚</text>
+      <text class="card-title">生活服务</text>
+    </view>
+    <view class="grid-3">
+      <view class="service-btn" wx:for="{{services}}" wx:key="label">
+        <view class="service-icon {{item.color}}">{{item.icon}}</view>
+        <text>{{item.label}}</text>
+      </view>
+    </view>
+  </view>
+  </block>
+
+  <view class="modal-mask" wx:if="{{selectedVolunteer}}" bindtap="closeVolunteer">
+    <view class="modal-content" catchtap="stopBubble">
+      <image src="{{selectedVolunteer.avatar}}" class="modal-avatar"></image>
+      <text class="modal-name">{{selectedVolunteer.name}}</text>
+      <view class="modal-intro">
+        <text class="intro-title">个人介绍</text>
+        <text class="intro-text">{{selectedVolunteer.bio}}</text>
+      </view>
+      <button class="modal-apply {{selectedVolunteer.applied ? 'btn-disabled' : ''}}" 
+              bindtap="handleApply" data-id="{{selectedVolunteer._id || selectedVolunteer.id}}">
+        {{selectedVolunteer.applied ? '已申请' : '点击申请'}}
+      </button>
+    </view>
+  </view>
+</view>

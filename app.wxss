@@ -1,0 +1,10 @@
+/**app.wxss**/
+page {
+  height: 100%;
+}
+
+/* 可选的全局样式 */
+.container {
+  padding: 20rpx;
+  box-sizing: border-box;
+}

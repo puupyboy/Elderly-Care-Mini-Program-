@@ -1,0 +1,59 @@
+<!--pages/shop/shop.wxml-->
+<view class="shop-container">
+
+  <!-- 轮播图 -->
+  <view class="swiper-container">
+    <swiper
+      class="swiper"
+      indicator-dots="{{true}}"
+      autoplay="{{true}}"
+      interval="{{3000}}"
+      duration="{{500}}"
+      circular="{{true}}"
+      indicator-color="rgba(255, 255, 255, 0.5)"
+      indicator-active-color="#fff"
+    >
+      <swiper-item wx:for="{{bannerList}}" wx:key="index">
+        <image
+          class="swiper-image"
+          src="{{item}}"
+          mode="aspectFill"
+        />
+      </swiper-item>
+    </swiper>
+  </view>
+
+  <!-- 进入商城按钮 -->
+  <view class="content">
+    <button class="jump-btn" bindtap="navigateToMiniProgram">
+      进入爱购商城
+    </button>
+  </view>
+
+  <!-- 热门商品展示区 -->
+  <view class="hot-products-section">
+    <view class="section-header">
+      <view class="title-row">
+        <text class="icon">🔥</text>
+        <text class="title">热门商品</text>
+      </view>
+      <text class="hint">点击上方按钮进入商城选购</text>
+    </view>
+
+    <view class="products-grid">
+      <view class="product-card" wx:for="{{hotProducts}}" wx:key="id">
+        <view class="product-image-box">
+          <image class="product-image" src="{{item.image}}" mode="aspectFill" />
+          <view class="product-tag">{{item.tag}}</view>
+        </view>
+        <view class="product-info">
+          <text class="product-name">{{item.name}}</text>
+          <view class="product-price-row">
+            <text class="product-price">¥{{item.price}}</text>
+            <text class="product-sales">{{item.sales}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

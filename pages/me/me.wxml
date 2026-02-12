@@ -1,0 +1,42 @@
+<view class="header">
+    <!-- 未登陆 -->
+    <image wx:if="{{!userInfo.avatarUrl}}" bindtap="closeTank" class="userinfo_avatar" src="/image/no_login.png"></image>
+    <view wx:if="{{!userInfo.avatarUrl}}" bindtap="closeTank" class="userinfo_nickname">点击登陆</view>
+    <!-- 已登陆 -->
+    <image wx:if="{{userInfo.avatarUrl}}" class="userinfo_avatar" src="{{userInfo.avatarUrl}}"></image>
+    <view wx:if="{{userInfo.avatarUrl}}" class="header_right">
+        <view class="userinfo_nickname">{{userInfo.nickName}}</view>
+        <text class="tuichu" bindtap="tuichu">退出登录</text>
+    </view>
+</view>
+
+<!-- 头像昵称基本信息弹框 -->
+<view>
+    <view class="userInfo_tank_bg" bindtap="closeTank" wx:if="{{userInfo_tank}}"></view>
+    <view class="userInfo_tank {{userInfo_tank?'transfromjoin':'transfromout'}}">
+        <view class="tank_title">
+            <text>申请获取您的头像、昵称</text>
+        </view>
+        <view class="tank_content">
+            <text>头像：</text>
+            <button class="avatar_button" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+                <image class="avatar_url" src="{{avatarUrl}}"></image>
+                <view class="pos_photo">
+                    <text class="iconfont icon-paizhao"></text>
+                </view>
+            </button>
+        </view>
+        <view class="tank_content">
+            <text>昵称：</text>
+            <input form-type='submit' bindblur="getNickName" placeholder="请输入昵称" type="nickname" />
+        </view>
+        <view class="confirm_button">
+            <view>
+                <button bindtap="closeTank">拒绝</button>
+            </view>
+            <view>
+                <button bindtap="submit" type="primary">允许</button>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "pages/first/first",
+    "pages/shop/shop",
+    "pages/ai/ai",
+    "pages/me/me"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "我的小程序",
+    "backgroundColor": "#f8f8f8",
+    "backgroundTextStyle": "light",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#07c160",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/first/first",
+        "text": "🏠 首页"
+      },
+      {
+        "pagePath": "pages/shop/shop",
+        "text": "🛒 爱购"
+      },
+      {
+        "pagePath": "pages/ai/ai",
+        "text": "🤖 AI"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "👤 我的"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
